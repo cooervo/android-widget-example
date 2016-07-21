@@ -24,11 +24,9 @@ public class MediaPlayerService extends Service {
     private MediaPlayer player;
     private List<Song> songs = new ArrayList<>();
 
-
     @Override
     public void onCreate() {
         super.onCreate();
-
         scanAllAudio();
     }
 
@@ -63,7 +61,7 @@ public class MediaPlayerService extends Service {
             }
 
         } catch (Exception e) {
-            Log.e(TAG, e.toString());
+            Log.d(TAG, e.toString());
         } finally {
             if (cursor != null) {
                 cursor.close();
@@ -136,7 +134,7 @@ public class MediaPlayerService extends Service {
 
     private Song getRandomSong() {
         Random r = new Random();
-        int min = 1;
+        int min = 0;
         int max = songs.size();
         int randomNum = r.nextInt(max - min) + min;
 
